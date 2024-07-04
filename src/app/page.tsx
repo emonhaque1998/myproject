@@ -1,18 +1,20 @@
-"use client" 
-import Image from "next/image";
-import { useSelector, useDispatch } from "react-redux";
-import { useAppSelector, useAppDispatch } from "@/redux/hooks";
-import { decrement, increment, incrementByAmount } from "@/redux/features/counterSlice";
+"use client"
 
 export default function Home() {
-  const count = useAppSelector(state => state.counter.value);
-  const dispatch = useAppDispatch();
   return (
     <>
-      <h1>{count}</h1>
-      <button className="" onClick={() => dispatch(increment())}>Increment</button><br />
-      <button onClick={()=> dispatch(decrement())}>Dicriment</button>
-      <button onClick={() => dispatch(incrementByAmount(2))}>Increment with 2</button>
+      <div className="bg-gradient-to-r from-blue-500 to-transparent">
+        <div className="container flex justify-between py-5">
+          <div>Logo</div>
+          <div>
+            <ul className="flex gap-3">
+              <li><a href="">Home</a></li>
+              <li><a href="">About</a></li>
+            </ul>
+          </div>
+          <div>Button</div>
+        </div>
+      </div>
     </>
   );
 }
