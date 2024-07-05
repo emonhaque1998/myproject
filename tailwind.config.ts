@@ -12,6 +12,9 @@ const config: Config = {
       padding: '2rem',
     },
     extend: {
+      fontFamily: {
+        nav: ['PlaywriteGBS', 'sans'], // Replace 'sans' with any applicable fallback font
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
