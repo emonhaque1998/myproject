@@ -1,32 +1,22 @@
-"use client"
-import * as Dialog from "@radix-ui/react-dialog";
-import type { FC, ReactNode } from "react";
+"use client";
+
 import { useRouter } from "next/navigation";
+import { ReactNode, useState } from "react";
+import ClientArea from "./frontend/auth/ClientArea";
 
-interface ModalProps {
-  children: ReactNode;
-}
+type Props = { children: ReactNode };
 
-const Modal: FC<ModalProps> = ({ children }) => {
+export default function Modal() {
+  const [modalIsOpen, setIsOpen] = useState(true);
   const router = useRouter();
 
-  const handleOnOpenChange = (open: boolean) => {
-    if (!open) {
-      router.back();
-    }
-  };
+  function closeModal() {
+    router.back();
+  }
 
   return (
-    <Dialog.Root open onOpenChange={handleOnOpenChange}>
-      <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/70" />
-
-        <Dialog.DialogContent className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          {children}
-        </Dialog.DialogContent>
-      </Dialog.Portal>
-    </Dialog.Root>
+    <div>
+      <ClientArea closeModal={closeModal} />
+    </div>
   );
-};
-
-export default Modal;
+}

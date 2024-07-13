@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ReduxProvider } from "@/redux/ReduxProvider";
+import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,12 +13,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}><ReduxProvider>{children}</ReduxProvider></body>
+      <body className={inter.className}>
+        <ReduxProvider>
+          <NextTopLoader />
+          {children}
+          {modal}
+        </ReduxProvider>
+      </body>
     </html>
   );
 }
