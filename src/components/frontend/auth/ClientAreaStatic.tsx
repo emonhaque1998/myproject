@@ -115,15 +115,15 @@ export default function ClientAreaStatic() {
               <div className="flex gap-3 flex-col lg:flex-row">
                 <div className="w-full">
                   <label
-                    htmlFor="street-address"
+                    htmlFor="firstName"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
                     First Name
                   </label>
                   <div className="mt-2">
                     <input
-                      id="street-address"
-                      name="email"
+                      id="firstName"
+                      name="firstName"
                       type="text"
                       className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
                     />
@@ -131,15 +131,15 @@ export default function ClientAreaStatic() {
                 </div>
                 <div className="w-full">
                   <label
-                    htmlFor="street-address"
+                    htmlFor="lastName"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
                     First Name
                   </label>
                   <div className="mt-2">
                     <input
-                      id="street-address"
-                      name="email"
+                      id="lastName"
+                      name="lastName"
                       type="text"
                       className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
                     />
@@ -148,34 +148,52 @@ export default function ClientAreaStatic() {
               </div>
               <div className="col-span-full">
                 <label
-                  htmlFor="street-address"
+                  htmlFor="email"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
                   Email
                 </label>
                 <div className="mt-2">
                   <input
-                    id="street-address"
+                    id="email"
                     name="email"
                     type="text"
                     className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
                   />
                 </div>
               </div>
-              <div className="col-span-full">
-                <label
-                  htmlFor="street-address"
-                  className="block text-sm font-medium leading-6 text-gray-900"
-                >
-                  Password
-                </label>
-                <div className="mt-2">
-                  <input
-                    id="street-address"
-                    name="password"
-                    type="password"
-                    className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
-                  />
+              <div className="flex gap-3 flex-col lg:flex-row">
+                <div className="w-full">
+                  <label
+                    htmlFor="password"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Password
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="password"
+                      name="password"
+                      type="password"
+                      className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
+                    />
+                  </div>
+                </div>
+                <div className="w-full">
+                  <label
+                    htmlFor="conpassword"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Confrom Password
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="conpassword"
+                      name="conformPassword"
+                      type="password"
+                      className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 outline-none"
+                    />
+                  </div>
                 </div>
               </div>
               <div className="flex justify-end gap-3 mt-2">

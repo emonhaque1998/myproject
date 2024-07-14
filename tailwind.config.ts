@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
+      padding: "2rem",
     },
     extend: {
       fontFamily: {
-        nav: ['PlaywriteGBS', 'sans'], // Replace 'sans' with any applicable fallback font
+        nav: ["PlaywriteGBS", "sans"], // Replace 'sans' with any applicable fallback font
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -1,5 +1,6 @@
 "use client";
 import Header from "@/components/frontend/layouts/Header";
+import Contact from "./contact/page";
 
 export default function Home() {
   return (
