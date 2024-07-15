@@ -23,8 +23,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <ReduxProvider>
           <NextTopLoader />
-          {children}
           {modal}
+          {children}
         </ReduxProvider>
       </body>
     </html>
