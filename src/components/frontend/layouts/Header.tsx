@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="bg-white bg-opacity-60 drop-shadow max-md:relative">
+      <div className="bg-white bg-opacity-80 drop-shadow max-md:relative sticky top-0">
         <div className="container flex justify-between py-5 items-center">
           <div>
             <a href="">Logo</a>
