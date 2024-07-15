@@ -1,13 +1,12 @@
 "use client";
-import Header from "@/components/frontend/layouts/Header";
-import Contact from "./contact/page";
+import HomeLayout from "@/components/frontend/layouts/HomeLayout";
 
 export default function Home() {
   return (
     <>
-      <div className="bg-gradient-to-r from-rose-100 to-teal-100 h-screen">
-        <Header />
-      </div>
+      <HomeLayout>
+        <h1 className="h-screen">This is home page</h1>
+      </HomeLayout>
     </>
   );
 }

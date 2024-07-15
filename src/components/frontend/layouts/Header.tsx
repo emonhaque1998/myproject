@@ -24,9 +24,9 @@ export default function Header() {
           >
             <ul className="lg:flex lg:gap-5">
               <li className="hover:bg-black hover:text-white max-lg:py-1 max-lg:px-5 hover:cursor-pointer">
-                <a href="" className="font-nav font-bold">
+                <Link href="/" className="font-nav font-bold">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="hover:bg-black hover:text-white max-lg:py-1 max-lg:px-5 hover:cursor-pointer">
                 <a href="" className="font-nav font-bold">

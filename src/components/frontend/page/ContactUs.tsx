@@ -7,7 +7,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 export default function ContactUs() {
   return (
-    <>
+    <div className="">
       <div className="flex justify-center py-10">
         <div className="flex flex-col gap-5">
           <h1 className="text-center font-bold text-4xl">Contact Us</h1>
@@ -17,8 +17,8 @@ export default function ContactUs() {
         </div>
       </div>
       <div className="bg-white bg-opacity-70 shadow-lg">
-        <div className="flex">
-          <div className="w-2/5 bg-black shadow-sm rounded-r-xl">
+        <div className="flex flex-row max-md:flex-col">
+          <div className="w-2/5 bg-black shadow-sm lg:rounded-r-xl max-md:rounded-b-xl max-md:w-full">
             <div className="container py-10 bg-[url('/assets/img/contact-bg.png')] bg-no-repeat bg-right-bottom">
               <div>
                 <h3 className="text-white font-medium text-3xl">
@@ -28,7 +28,7 @@ export default function ContactUs() {
                   Say something to start a live chat!
                 </p>
               </div>
-              <div className="mt-24">
+              <div className="mt-24 max-md:mt-12">
                 <ul className="flex flex-col gap-8">
                   <li className="text-white flex gap-2 items-center">
                     <IoCall />
@@ -51,7 +51,7 @@ export default function ContactUs() {
                 </ul>
               </div>
               <div>
-                <ul className="flex gap-3 mt-32">
+                <ul className="flex gap-3 mt-32 max-md:mt-16">
                   <li className=" bg-gray-900 h-10 w-10 rounded-full flex justify-center items-center hover:bg-white text-white hover:text-black cursor-pointer">
                     <span className="">
                       <FaGithub />
@@ -71,9 +71,9 @@ export default function ContactUs() {
               </div>
             </div>
           </div>
-          <div className="py-10 w-3/5 container">
-            <form action="" className="flex flex-col gap-6">
-              <div className="flex gap-10 flex-col lg:flex-row">
+          <div className="py-10 w-3/5 container max-md:w-full">
+            <form action="" className="flex flex-col gap-6 max-md:gap-2">
+              <div className="flex gap-10 max-md:gap-2 flex-col lg:flex-row">
                 <div className="w-full">
                   <label
                     htmlFor="firstName"
@@ -107,7 +107,7 @@ export default function ContactUs() {
                   </div>
                 </div>
               </div>
-              <div className="flex gap-10 flex-col lg:flex-row">
+              <div className="flex gap-10 max-md:gap-2 flex-col lg:flex-row">
                 <div className="w-full">
                   <label
                     htmlFor="email"
@@ -142,8 +142,10 @@ export default function ContactUs() {
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <h3 className="text-lg font-medium">Select Subject?</h3>
-                <div className="flex gap-8">
+                <h3 className="text-lg font-medium max-md:text-sm">
+                  Select Subject?
+                </h3>
+                <div className="flex gap-8 flex-row max-md:gap-2">
                   <div className="flex gap-2">
                     <input
                       type="radio"
@@ -151,7 +153,10 @@ export default function ContactUs() {
                       id="subject"
                       className="cursor-pointer"
                     />
-                    <label htmlFor="subject" className="cursor-pointer">
+                    <label
+                      htmlFor="subject"
+                      className="cursor-pointer max-md:text-sm"
+                    >
                       Genarel Inquary
                     </label>
                   </div>
@@ -162,7 +167,10 @@ export default function ContactUs() {
                       id="support"
                       className="cursor-pointer"
                     />
-                    <label htmlFor="support" className="cursor-pointer">
+                    <label
+                      htmlFor="support"
+                      className="cursor-pointer max-md:text-sm"
+                    >
                       Support
                     </label>
                   </div>
@@ -173,7 +181,10 @@ export default function ContactUs() {
                       id="support"
                       className="cursor-pointer"
                     />
-                    <label htmlFor="support" className="cursor-pointer">
+                    <label
+                      htmlFor="support"
+                      className="cursor-pointer max-md:text-sm"
+                    >
                       Support
                     </label>
                   </div>
@@ -184,7 +195,10 @@ export default function ContactUs() {
                       id="support"
                       className="cursor-pointer"
                     />
-                    <label htmlFor="support" className="cursor-pointer">
+                    <label
+                      htmlFor="support"
+                      className="cursor-pointer max-md:text-sm"
+                    >
                       Support
                     </label>
                   </div>
@@ -212,6 +226,6 @@ export default function ContactUs() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
