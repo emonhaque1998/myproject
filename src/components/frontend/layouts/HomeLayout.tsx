@@ -5,7 +5,7 @@ import Footer from "./Footer";
 export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <div className="bg-gradient-to-r from-rose-100 to-teal-100">
+      <div className="bg-[#0D0D0D]">
         <Header />
         {children}
         <Footer />
