@@ -5,8 +5,14 @@ export default function Hero() {
   return (
     <>
       <div className="w-full h-screen bg-[url('/assets/img/background.png')] absolute top-0 bg-contain bg-no-repeat z-1"></div>
-      <div className="h-screen max-md:h-[600px] container mx-auto lg:px-24 max-md:px-5 flex flex-col justify-center items-start gap-10 relative">
-        <div className="bg-[url('/assets/img/geist.png')] w-[288px] h-[344px] opacity-20 bg-no-repeat absolute bg-contain right-52 max-md:hidden"></div>
+      <div className="h-screen max-md:h-[600px] container mx-auto max-md:px-5 flex flex-col justify-center items-start gap-10 relative">
+        <div
+          className={`${
+            theme
+              ? "bg-[url('/assets/img/geist-light.png')] opacity-20"
+              : "bg-[url('/assets/img/geist.png')] opacity-25"
+          } w-[288px] h-[344px] bg-no-repeat absolute bg-contain right-52 max-md:hidden`}
+        ></div>
         <div>
           <h1
             className={`text-8xl max-md:text-5xl font-bold ${
@@ -31,7 +37,11 @@ export default function Hero() {
           <button className="bg-gradient-to-r from-[#1A1A1A] to-[#131313] px-4 py-3 rounded-md text-white max-md:block">
             See my resume
           </button>
-          <button className="bg-[#181818] px-4 py-3 rounded-md text-[#808080]">
+          <button
+            className={`${
+              theme ? "bg-[#F3F3F3] text-black" : "bg-[#181818] text-[#808080]"
+            } px-4 py-3 rounded-md`}
+          >
             Get in touch
           </button>
         </div>

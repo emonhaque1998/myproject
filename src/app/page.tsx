@@ -1,5 +1,6 @@
 "use client";
 import Hero from "@/components/frontend/home/Hero";
+import Project from "@/components/frontend/home/Project";
 import HomeLayout from "@/components/frontend/layouts/HomeLayout";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <>
       <HomeLayout>
         <Hero />
+        <Project />
       </HomeLayout>
     </>
   );

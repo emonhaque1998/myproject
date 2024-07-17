@@ -19,17 +19,31 @@ export default function Header() {
 
   return (
     <div className="flex justify-center">
-      <div className="container px-24 max-md:px-5 absolute top-5 z-10">
-        <div className="bg-[#18181D]/30 flex py-5 items-center px-5 rounded-xl">
-          <div className="text-white w-2/12">logo</div>
+      <div className="container max-md:px-5 absolute top-5 z-10">
+        <div
+          className={`${
+            theme ? "bg-white/30" : "bg-[#18181D]/30"
+          } flex py-5 items-center px-5 rounded-xl`}
+        >
+          <div className={`${theme ? "text-black" : "text-white"} w-2/12`}>
+            logo
+          </div>
           <div className="w-7/12">
-            <ul className="flex gap-5 text-white max-md:hidden">
+            <ul
+              className={`flex gap-5 ${
+                theme ? "text-black" : "text-white"
+              } max-md:hidden`}
+            >
               <li>Home</li>
               <li>About</li>
               <li>Contact</li>
             </ul>
           </div>
-          <div className="text-white text-xl max-md:text-lg w-3/12 flex gap-5 justify-end">
+          <div
+            className={`${
+              theme ? "text-black" : "text-white"
+            } text-xl max-md:text-lg w-3/12 flex gap-5 justify-end`}
+          >
             <div>
               <FaLinkedin />
             </div>
