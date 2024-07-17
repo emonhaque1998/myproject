@@ -8,7 +8,7 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
   console.log(theme);
   return (
     <>
-      <div className={`bg-[${theme ? "white" : "#0D0D0D"}]`}>
+      <div className={`${theme ? "bg-white" : "bg-[#0D0D0D]"}`}>
         <Header />
         {children}
         <Footer />
