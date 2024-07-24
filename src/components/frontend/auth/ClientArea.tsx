@@ -32,7 +32,7 @@ export default function ClientArea({ closeModal }: ChildComponentProps) {
 
   useEffect(() => {
     if (!open) {
-      closeModal();
+      setOpen(!open);
     }
   }, [open]);
 

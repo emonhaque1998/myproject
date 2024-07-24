@@ -5,7 +5,6 @@ import { useAppSelector } from "@/redux/hooks";
 
 export default function HomeLayout({ children }: { children: ReactNode }) {
   const theme = useAppSelector((state) => state.theme.value);
-  console.log(theme);
   return (
     <>
       <div className={`${theme ? "bg-white" : "bg-[#0D0D0D]"}`}>

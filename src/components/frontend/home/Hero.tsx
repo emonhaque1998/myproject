@@ -19,7 +19,7 @@ export default function Hero() {
               theme ? "text-[#181818]" : "text-white"
             }`}
           >
-            <span className="text-[#808080]">I'm</span> Eman H.
+            <span className="text-[#808080]">I&apos;m</span> Eman H.
           </h1>
         </div>
         <div>
