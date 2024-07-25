@@ -8,6 +8,7 @@ export default function HomeLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <div className={`${theme ? "bg-white" : "bg-[#0D0D0D]"}`}>
+        <div className="w-full h-screen bg-[url('/assets/img/background.png')] absolute top-0 bg-contain bg-no-repeat z-1"></div>
         <Header />
         {children}
         <Footer />

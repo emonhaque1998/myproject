@@ -4,8 +4,7 @@ export default function Hero() {
   const theme = useAppSelector((state) => state.theme.value);
   return (
     <>
-      <div className="w-full h-screen bg-[url('/assets/img/background.png')] absolute top-0 bg-contain bg-no-repeat z-1"></div>
-      <div className="h-screen max-md:h-[600px] container mx-auto max-md:px-5 flex flex-col justify-center items-start gap-10 relative">
+      <div className="pt-44 pb-28 max-md:pt-36 max-md:pb-48 container mx-auto max-md:px-5 flex flex-col justify-center items-start gap-10 relative">
         <div
           className={`${
             theme
