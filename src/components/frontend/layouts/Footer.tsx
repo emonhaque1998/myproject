@@ -8,9 +8,7 @@ export default function Footer() {
   return (
     <>
       <div
-        className={`${
-          theme ? "bg-white/30" : "bg-[#18181D]/30"
-        }bg-white/30 relative z-10`}
+        className={`z-10 bg-[url('/assets/img/footer-background.png')] bg-contain bg-no-repeat bg-bottom`}
       >
         <div className="bg-[url('/assets/img/Shape.png')] bg-contain bg-no-repeat bg-top">
           <div className="flex flex-col justify-center">
@@ -101,7 +99,7 @@ export default function Footer() {
                 <hr className="" />
               </div>
               <div
-                className={`container flex flex-col lg:flex-row pb-10 ${
+                className={`container flex flex-col lg:flex-row ${
                   theme ? "text-[#808080]" : "text-white"
                 }`}
               >
@@ -129,7 +127,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="w-full h-[400px] bg-[url('/assets/img/footer-background.png')] absolute bottom-0 bg-contain bg-no-repeat z-[-1]"></div>
       </div>
     </>
   );

@@ -4,7 +4,7 @@ export default function Hero() {
   const theme = useAppSelector((state) => state.theme.value);
   return (
     <>
-      <div className="pt-44 pb-28 max-md:pt-36 max-md:pb-48 container mx-auto max-md:px-5 flex flex-col justify-center items-start gap-10 relative">
+      <div className="pt-44 pb-28 max-md:pt-36 max-md:pb-16 container mx-auto max-md:px-5 flex flex-col justify-center items-start gap-16 relative">
         <div
           className={`${
             theme

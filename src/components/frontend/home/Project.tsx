@@ -6,8 +6,8 @@ export default function Project() {
   const theme = useAppSelector((state) => state.theme.value);
   return (
     <>
-      <div className="h-screen flex flex-col justify-center">
-        <div className="container">
+      <div className="py-16 flex flex-col justify-center container">
+        <div className="">
           <div className="mb-5">
             <h2
               className={`${
@@ -24,7 +24,7 @@ export default function Project() {
                 : "bg-[#181818] border-[#383737]"
             } border-[.5px] border-opacity-20 rounded-xl flex`}
           >
-            <div className="flex flex-col gap-5 w-1/2 py-10 pl-10 relative">
+            <div className="flex flex-col gap-5 w-1/2 max-md:w-full py-10 pl-10 max-md:py-5 max-md:pl-5 max-md:pr-5 relative">
               <div>
                 <Image
                   src="/assets/img/Logo.png"
@@ -35,13 +35,19 @@ export default function Project() {
               </div>
               <div>
                 <h2
-                  className={`${theme ? "text-black" : "text-white"} text-3xl`}
+                  className={`${
+                    theme ? "text-black" : "text-white"
+                  } text-xl font-bold`}
                 >
                   Subbi –– The free subscriptions manager
                 </h2>
               </div>
               <div>
-                <p className={`${theme ? "text-[#808080]" : "text-white"}`}>
+                <p
+                  className={`${
+                    theme ? "text-[#808080]" : "text-white"
+                  } max-md:text-sm`}
+                >
                   Subbi is a side project that I’ve built to help me keep track
                   of how much I spend on subscriptions and also to prevent the
                   “accidental” bill after a 14-day trail ends. It helps you keep
@@ -49,18 +55,18 @@ export default function Project() {
                   Card, Bank Cards, and many more.
                 </p>
               </div>
-              <div className="absolute bottom-10">
+              <div className="lg:absolute lg:bottom-10">
                 <a
                   href=""
                   className={`flex items-center text-lg gap-1 ${
                     theme ? "text-[#808080]" : "text-white"
-                  }`}
+                  } max-md:text-lg`}
                 >
                   Visit Website <FaArrowRight className="text-sm" />
                 </a>
               </div>
             </div>
-            <div className="flex justify-center w-1/2">
+            <div className="flex justify-center w-1/2  max-md:hidden">
               <Image
                 src="/assets/img/iPhone-14.png"
                 width={300}
