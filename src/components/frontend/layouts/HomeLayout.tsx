@@ -2,16 +2,25 @@ import React, { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { useAppSelector } from "@/redux/hooks";
+import Light from "../Light";
 
-export default function HomeLayout({ children }: { children: ReactNode }) {
+export default function HomeLayout({
+  children,
+  headFood,
+}: {
+  children: ReactNode;
+  headFood?: Boolean;
+}) {
   const theme = useAppSelector((state) => state.theme.value);
+  console.log(headFood);
   return (
     <>
       <div className={`${theme ? "bg-white" : "bg-[#0D0D0D]"} relative`}>
-        <div className="w-full h-screen bg-[url('/assets/img/background.png')] absolute top-0 bg-contain bg-no-repeat z-1"></div>
-        <Header />
+        {headFood && <Light classProperty="z-0" />}
+        {headFood && <Header />}
+
         {children}
-        <Footer />
+        {headFood && <Footer />}
       </div>
     </>
   );

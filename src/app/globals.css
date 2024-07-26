@@ -5,8 +5,8 @@
 /* styles.css */
 
 @font-face {
-  font-family: 'PlaywriteGBS';
-  src: url('/assets/fonts/PlaywriteGBS-Regular.ttf') format('truetype');
+  font-family: "PlaywriteGBS";
+  src: url("/assets/fonts/PlaywriteGBS-Regular.ttf") format("truetype");
   /* Add more src declarations if needed for different font formats */
   font-weight: normal;
   font-style: normal;

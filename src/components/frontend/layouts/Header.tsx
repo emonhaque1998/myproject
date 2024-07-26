@@ -8,6 +8,7 @@ import { IoSunnyOutline } from "react-icons/io5";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setTheme } from "@/redux/features/themeModeSlice";
 import { BsMoonStarsFill } from "react-icons/bs";
+import { FaUserShield } from "react-icons/fa";
 
 export default function Header() {
   const theme = useAppSelector((state) => state.theme.value);
@@ -67,6 +68,9 @@ export default function Header() {
                 />
               )}
             </div>
+            <Link href="/login">
+              <FaUserShield />
+            </Link>
           </div>
         </div>
       </div>

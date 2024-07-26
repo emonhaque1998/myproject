@@ -8,7 +8,7 @@ import HomeLayout from "@/components/frontend/layouts/HomeLayout";
 export default function Home() {
   return (
     <>
-      <HomeLayout>
+      <HomeLayout headFood={true}>
         <Hero />
         <Project />
         <GetToKnow />
