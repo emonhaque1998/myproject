@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ReduxProvider } from "@/redux/ReduxProvider";
 import NextTopLoader from "nextjs-toploader";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,6 +20,7 @@ export default function RootLayout({
         <ReduxProvider>
           <NextTopLoader />
           {children}
+          <Toaster />
         </ReduxProvider>
       </body>
     </html>
