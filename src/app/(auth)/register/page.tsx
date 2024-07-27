@@ -6,12 +6,10 @@ import Link from "next/link";
 import { IoHomeSharp } from "react-icons/io5";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { LoginScema } from "@/schemas";
+import { registerSechma } from "@/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTransition } from "react";
 import { useToast } from "@/components/ui/use-toast";
-import { FcGoogle } from "react-icons/fc";
-import { SiFacebook } from "react-icons/si";
 
 import {
   Form,
@@ -22,26 +20,29 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { login } from "@/actions/login";
+import { register } from "@/actions/login";
 import { GoogleTagManager } from "@next/third-parties/google";
 
-export default function Login() {
+export default function Resister() {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
   const theme = useAppSelector((state) => state.theme.value);
   const environment = useAppSelector((state) => state.environment.value);
 
-  const form = useForm<z.infer<typeof LoginScema>>({
-    resolver: zodResolver(LoginScema),
+  const form = useForm<z.infer<typeof registerSechma>>({
+    resolver: zodResolver(registerSechma),
     defaultValues: {
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
+      confromPassword: "",
     },
   });
 
-  const loginSubmit = (values: z.infer<typeof LoginScema>) => {
+  const registerSubmit = (values: z.infer<typeof registerSechma>) => {
     startTransition(() => {
-      login(values).then((data) => {
+      register(values).then((data) => {
         if (data.error) {
           toast({
             variant: "destructive",
@@ -63,7 +64,8 @@ export default function Login() {
       <div className="container h-screen max-md:h-[100vh] w-full z-30 relative">
         <Light classProperty="-z-10" />
         <div className="flex justify-center items-center">
-          <div className="flex flex-col items-center w-1/2 max-md:w-full max-md:px-1 px-32 max-md:mt-16">
+          <div className="max-md:hidden ring-offset-8 ring-8 ring-white rounded-[30px] ring-inset w-1/2 h-screen max-md:h-[100vh] bg-[url('https://images.unsplash.com/photo-1589095181425-c038b3871b6a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zmxvd2VyJTIwbG92ZXxlbnwwfHwwfHx8MA%3D%3D')] bg-no-repeat bg-cover"></div>
+          <div className="flex flex-col items-center w-1/2 max-md:w-full max-md:px-1 px-24 max-md:mt-16">
             <div className="w-full flex flex-col items-start gap-2 max-md:gap-1">
               <h2
                 className={`text-2xl font-bold ${
@@ -85,9 +87,63 @@ export default function Login() {
               <Form {...form}>
                 <form
                   className="w-full"
-                  onSubmit={form.handleSubmit(loginSubmit)}
+                  onSubmit={form.handleSubmit(registerSubmit)}
                 >
                   <div className="w-full flex flex-col gap-2">
+                    <div className="flex gap-1">
+                      <div className="w-1/2">
+                        <FormField
+                          control={form.control}
+                          name="firstName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel
+                                className={`${
+                                  theme ? "text-black" : "text-white"
+                                }`}
+                              >
+                                First Name
+                              </FormLabel>
+                              <FormControl>
+                                <Input
+                                  {...field}
+                                  disabled={isPending}
+                                  placeholder="Eman"
+                                  type="text"
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                      <div className="w-1/2">
+                        <FormField
+                          control={form.control}
+                          name="lastName"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel
+                                className={`${
+                                  theme ? "text-black" : "text-white"
+                                }`}
+                              >
+                                Last Name
+                              </FormLabel>
+                              <FormControl>
+                                <Input
+                                  {...field}
+                                  disabled={isPending}
+                                  placeholder="H."
+                                  type="text"
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </div>
                     <div className="w-full">
                       <FormField
                         control={form.control}
@@ -140,74 +196,56 @@ export default function Login() {
                         )}
                       />
                     </div>
-                    <div className="flex justify-end">
-                      <a
-                        href=""
-                        className={`${
-                          theme ? "text-black" : "text-white"
-                        } max-md:text-sm`}
-                      >
-                        Forgot Password?
-                      </a>
+                    <div className="w-full">
+                      <FormField
+                        control={form.control}
+                        name="password"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel
+                              className={`${
+                                theme ? "text-black" : "text-white"
+                              }`}
+                            >
+                              Retype Password
+                            </FormLabel>
+                            <FormControl>
+                              <Input
+                                {...field}
+                                disabled={isPending}
+                                placeholder="Same to first one"
+                                type="password"
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
                     </div>
                     <button
                       type="submit"
-                      className={`text-white bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
+                      className={`mt-2 text-white bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
                     >
-                      Sign In
+                      Sign Up
                     </button>
+                    <p
+                      className={`text-center text-sm ${
+                        theme ? "text-black" : "text-white"
+                      }`}
+                    >
+                      Already you have account?{" "}
+                      <Link href="/login">Sign In</Link>
+                    </p>
                   </div>
                 </form>
               </Form>
-              <div className="relative flex py-5 max-md:py-2 items-center">
-                <div
-                  className={`flex-grow border-t ${
-                    theme ? "border-gray-400" : "border-white"
-                  }`}
-                ></div>
-                <span className="flex-shrink mx-4 text-gray-400">Or</span>
-                <div
-                  className={`flex-grow border-t ${
-                    theme ? "border-gray-400" : "border-white"
-                  }`}
-                ></div>
-              </div>
-              <div className="flex flex-col gap-2">
-                <button
-                  type="submit"
-                  className={`bg-sky-300/20 flex justify-center items-center gap-2 ${
-                    theme ? "text-black" : "text-white"
-                  } max-md:text-sm focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
-                >
-                  <FcGoogle className="text-xl" />
-                  <span>Sign in with Google</span>
-                </button>
-                <button
-                  type="submit"
-                  className={`bg-sky-300/20 flex justify-center items-center gap-2 ${
-                    theme ? "text-black" : "text-white"
-                  } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
-                >
-                  <SiFacebook className="text-xl" color="blue" />
-                  <span>Sign in with Facebook</span>
-                </button>
-                <p
-                  className={`text-center text-sm ${
-                    theme ? "text-black" : "text-white"
-                  }`}
-                >
-                  Don&apos;t you have account?{" "}
-                  <Link href="/register">Sign Up</Link>
-                </p>
-              </div>
             </div>
           </div>
-          <div className="max-md:hidden ring-offset-8 ring-8 ring-white rounded-[30px] ring-inset w-1/2 h-screen max-md:h-[100vh] bg-[url('https://images.unsplash.com/photo-1589095181425-c038b3871b6a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Zmxvd2VyJTIwbG92ZXxlbnwwfHwwfHx8MA%3D%3D')] bg-no-repeat bg-cover"></div>
         </div>
       </div>
       <Link
         href="/"
-        className={`z-50 cursor-pointer bg-opacity-5 text-xl absolute flex justify-center items-center top-5 max-md:top-2 max-md:left-2 left-5 p-5 rounded-full w-14 h-14 ${
+        className={`z-50 cursor-pointer bg-opacity-5 text-xl absolute flex justify-center items-center top-5 max-md:top-2 max-md:left-2 right-5 p-5 rounded-full w-14 h-14 ${
           theme ? "bg-black text-black" : "bg-white text-white"
         }`}
       >

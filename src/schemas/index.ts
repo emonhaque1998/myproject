@@ -8,3 +8,11 @@ export const LoginScema = z.object({
     message: "Required password",
   }),
 });
+
+export const registerSechma = z.object({
+  firstName: z.string(),
+  lastName: z.string(),
+  email: z.string().email(),
+  password: z.string(),
+  confromPassword: z.string(),
+});
