@@ -4,6 +4,7 @@ import { ReduxProvider } from "@/redux/ReduxProvider";
 import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Welcome - Developer Eman",
@@ -22,6 +23,7 @@ export default function RootLayout({
         <ReduxProvider>
           <NextTopLoader />
           {environment && <GoogleTagManager gtmId="G-3BRTFCYKXQ" />}
+          <SpeedInsights />
           {children}
           <Toaster />
         </ReduxProvider>
