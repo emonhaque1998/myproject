@@ -23,11 +23,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { login } from "@/actions/login";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export default function Login() {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
   const theme = useAppSelector((state) => state.theme.value);
+  const environment = useAppSelector((state) => state.environment.value);
 
   const form = useForm<z.infer<typeof LoginScema>>({
     resolver: zodResolver(LoginScema),
@@ -57,6 +59,7 @@ export default function Login() {
 
   return (
     <HomeLayout>
+      {environment && <GoogleTagManager gtmId="G-3BRTFCYKXQ" />}
       <div className="container h-screen max-md:h-[100vh] w-full z-30 relative">
         <Light classProperty="-z-10" />
         <div className="flex justify-center items-center">

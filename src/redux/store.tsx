@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterSlice from "./features/counterSlice";
+import envSlice from "./features/envSlice";
 import themeModeSlice from "./features/themeModeSlice";
 // ...
 
 export const store = configureStore({
   reducer: {
-    counter: counterSlice,
+    environment: envSlice,
     theme: themeModeSlice,
   },
 });
