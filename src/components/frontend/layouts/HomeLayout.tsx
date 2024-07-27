@@ -8,9 +8,11 @@ import Notice from "@/components/frontend/home/NoticeMarque";
 export default function HomeLayout({
   children,
   headFood,
+  notice,
 }: {
   children: ReactNode;
   headFood?: Boolean;
+  notice?: Boolean;
 }) {
   const theme = useAppSelector((state) => state.theme.value);
   console.log(headFood);
@@ -18,7 +20,7 @@ export default function HomeLayout({
     <>
       <div className={`${theme ? "bg-white" : "bg-[#0D0D0D]"} relative`}>
         {headFood && <Light classProperty="z-0" />}
-        <Notice />
+        {notice && <Notice />}
         {headFood && <Header />}
 
         {children}
