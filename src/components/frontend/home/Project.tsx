@@ -71,7 +71,8 @@ export default function Project() {
                 src="/assets/img/iPhone-14.png"
                 width={300}
                 height={100}
-                className="object-cover"
+                sizes="100"
+                className="w-auto h-auto"
                 alt="Project Thumbnails"
               />
             </div>

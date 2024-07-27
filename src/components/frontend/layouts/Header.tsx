@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <div className="flex justify-center">
-      <div className="container max-md:px-5 absolute top-5 z-10">
+      <div className="container max-md:px-5 absolute top-10 z-10">
         <div
           className={`${
             theme ? "bg-white/30" : "bg-[#18181D]/30"
