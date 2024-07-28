@@ -44,7 +44,9 @@ export default function Header() {
           >
             <ul
               className={`flex gap-5 max-md:flex-col ${
-                theme ? "text-white" : "text-black font-semibold"
+                theme
+                  ? "max-md:text-white text-black font-normal"
+                  : "max-md:text-black text-white font-normal"
               }  ${
                 theme ? "max-md:bg-black/50" : "max-md:bg-white/80"
               } max-md:rounded-xl`}
