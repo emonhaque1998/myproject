@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
+import { setThemeCookie } from "@/actions/theme";
 
 export interface ThemeState {
   value: Boolean;
 }
 
 const initialState: ThemeState = {
-  value: false,
+  value: true,
 };
 
 export const themeModSlice = createSlice({

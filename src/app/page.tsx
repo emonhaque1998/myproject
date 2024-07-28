@@ -1,4 +1,5 @@
 "use client";
+
 import GetToKnow from "@/components/frontend/home/GetToKnow";
 import Hero from "@/components/frontend/home/Hero";
 import Project from "@/components/frontend/home/Project";
