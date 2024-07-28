@@ -7,7 +7,7 @@ export default function Notice() {
       <div className="flex justify-center">
         <div className="w-1/2 py-1 rounded-3xl bg-white/30 z-50">
           <Marquee className={`${theme ? "text-black" : "text-white"}`}>
-            <div className="flex gap-20">
+            <div className="flex gap-20 max-md:gap-3">
               <div>Site under construction! 🧑‍💻</div>
               <div>Comming Soon &#128512;</div>
             </div>
