@@ -15,7 +15,7 @@ export default function HomeLayout({
   notice?: Boolean;
 }) {
   const theme = useAppSelector((state) => state.theme.value);
-  console.log(theme);
+
   return (
     <>
       <div className={`${theme ? "bg-white" : "bg-[#0D0D0D]"} relative`}>

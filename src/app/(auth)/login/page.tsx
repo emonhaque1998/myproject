@@ -42,15 +42,11 @@ export default function Login() {
   const loginSubmit = (values: z.infer<typeof LoginScema>) => {
     startTransition(() => {
       login(values).then((data) => {
-        if (data.error) {
+        if (data?.error) {
           toast({
             variant: "destructive",
             title: data.error,
             description: "There was a problem with your request.",
-          });
-        } else {
-          toast({
-            description: data.success,
           });
         }
       });

@@ -1,7 +1,10 @@
+import { auth, signOut } from "@/auth";
+
 export default async function Dashboard() {
+  const session = await auth();
   return (
     <>
-      <h1>Dashboard Page</h1>
+      <h1>{JSON.stringify(session)}</h1>
     </>
   );
 }

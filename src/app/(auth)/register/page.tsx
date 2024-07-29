@@ -43,7 +43,7 @@ export default function Resister() {
   const registerSubmit = (values: z.infer<typeof registerSechma>) => {
     startTransition(() => {
       register(values).then((data) => {
-        if (data.error) {
+        if (data?.error) {
           toast({
             variant: "destructive",
             title: data.error,
