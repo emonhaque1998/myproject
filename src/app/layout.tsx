@@ -5,7 +5,6 @@ import NextTopLoader from "nextjs-toploader";
 import { Toaster } from "@/components/ui/toaster";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Welcome - Developer Eman",
@@ -21,15 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SessionProvider>
-          <ReduxProvider>
-            <NextTopLoader />
-            {environment && <GoogleTagManager gtmId="G-3BRTFCYKXQ" />}
-            <SpeedInsights />
-            {children}
-            <Toaster />
-          </ReduxProvider>
-        </SessionProvider>
+        <ReduxProvider>
+          <NextTopLoader />
+          {environment && <GoogleTagManager gtmId="G-3BRTFCYKXQ" />}
+          <SpeedInsights />
+          {children}
+          <Toaster />
+        </ReduxProvider>
       </body>
     </html>
   );
