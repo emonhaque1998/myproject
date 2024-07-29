@@ -28,7 +28,7 @@ export const register = async (values: z.infer<typeof registerSechma>) => {
 
   const existingUser = await db.user.findUnique({
     where: {
-      email: email,
+      email,
     },
   });
 
