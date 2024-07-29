@@ -6,6 +6,18 @@ import { UserRole } from "@prisma/client";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
+    async signIn({ user }) {
+      const existingUser = await db.user.findUnique({
+        where: {
+          id: user.id,
+        },
+      });
+
+      if (!existingUser || !existingUser.emailVerified) {
+        return false;
+      }
+      return true;
+    },
     async session({ token, session }) {
       if (token.sub && session.user) {
         session.user.id = token.sub;

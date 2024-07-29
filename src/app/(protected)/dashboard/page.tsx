@@ -5,6 +5,14 @@ export default async function Dashboard() {
   return (
     <>
       <h1>{JSON.stringify(session)}</h1>
+      <form
+        action={async () => {
+          "use server";
+          await signOut();
+        }}
+      >
+        <button type="submit">Sing Out</button>
+      </form>
     </>
   );
 }
