@@ -2,7 +2,6 @@
 datasource db {
   provider  = "mongodb"
   url  	    = env("DATABASE_URL")
-  // uncomment next line if you use Prisma <5.10
 }
 
 generator client {
