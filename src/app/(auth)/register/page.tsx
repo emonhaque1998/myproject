@@ -20,7 +20,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { register } from "@/actions/login";
+import { register } from "@/actions/auth";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 export default function Resister() {
@@ -199,7 +199,7 @@ export default function Resister() {
                     <div className="w-full">
                       <FormField
                         control={form.control}
-                        name="password"
+                        name="confromPassword"
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel

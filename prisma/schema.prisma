@@ -1,9 +1,8 @@
 // prisma/schema.prisma
 datasource db {
-  provider  = "postgresql"
+  provider  = "mongodb"
   url  	    = env("DATABASE_URL")
   // uncomment next line if you use Prisma <5.10
-  // directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 generator client {
@@ -11,6 +10,8 @@ generator client {
 }
 
 model User {
-  id String @id @default(cuid())
-  name String
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  email    String @unique
+  password String
 }

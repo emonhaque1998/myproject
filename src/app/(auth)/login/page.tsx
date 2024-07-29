@@ -22,7 +22,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { login } from "@/actions/login";
+import { login } from "@/actions/auth";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 export default function Login() {
