@@ -24,6 +24,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { login } from "@/actions/auth";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { signIn } from "next-auth/react";
 
 export default function Login() {
   const [isPending, startTransition] = useTransition();
@@ -179,13 +180,13 @@ export default function Login() {
                   <span>Sign in with Google</span>
                 </button>
                 <button
-                  type="submit"
+                  onClick={() => signIn("github")}
                   className={`bg-sky-300/20 flex justify-center items-center gap-2 ${
                     theme ? "text-black" : "text-white"
                   } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
                 >
                   <SiFacebook className="text-xl" color="blue" />
-                  <span>Sign in with Facebook</span>
+                  <span>Sign in with Github</span>
                 </button>
                 <p
                   className={`text-center text-sm ${
