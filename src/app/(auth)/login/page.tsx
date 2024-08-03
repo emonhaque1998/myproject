@@ -22,9 +22,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { login } from "@/actions/auth";
+import { login, googleSignIn } from "@/actions/auth";
 import { GoogleTagManager } from "@next/third-parties/google";
-import { signIn } from "next-auth/react";
+import Spinner from "@/components/frontend/home/parts/Spinner";
 
 export default function Login() {
   const [isPending, startTransition] = useTransition();
@@ -148,10 +148,12 @@ export default function Login() {
                       </a>
                     </div>
                     <button
+                      disabled={isPending}
                       type="submit"
-                      className={`text-white bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
+                      className={`flex gap-2 justify-center items-center text-white bg-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
                     >
                       Sign In
+                      {isPending && <Spinner />}
                     </button>
                   </div>
                 </form>
@@ -171,7 +173,7 @@ export default function Login() {
               </div>
               <div className="flex flex-col gap-2">
                 <button
-                  onClick={() => signIn("google")}
+                  onClick={() => googleSignIn()}
                   className={`bg-sky-300/20 flex justify-center items-center gap-2 ${
                     theme ? "text-black" : "text-white"
                   } max-md:text-sm focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}
@@ -180,7 +182,6 @@ export default function Login() {
                   <span>Sign in with Google</span>
                 </button>
                 <button
-                  onClick={() => signIn("github")}
                   className={`bg-sky-300/20 flex justify-center items-center gap-2 ${
                     theme ? "text-black" : "text-white"
                   } focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800`}

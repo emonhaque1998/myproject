@@ -35,6 +35,10 @@ export const login = async (values: z.infer<typeof LoginScema>) => {
   }
 };
 
+export const googleSignIn = async () => {
+  await signIn("google");
+};
+
 export const register = async (values: z.infer<typeof registerSechma>) => {
   const validatedFields = registerSechma.safeParse(values);
 
