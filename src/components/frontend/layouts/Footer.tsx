@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <>
       <div
-        className={`mt-5 z-10 bg-[url('/assets/img/footer-background.png')] bg-contain bg-no-repeat bg-bottom`}
+        className={`mt-10 z-10 bg-[url('/assets/img/footer-background.png')] bg-contain bg-no-repeat bg-bottom`}
       >
         <div className="bg-[url('/assets/img/Shape.png')] bg-contain bg-no-repeat bg-top">
           <div className="flex flex-col justify-center">

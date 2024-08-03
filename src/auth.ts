@@ -21,7 +21,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         },
       });
 
-      if (!existingUser || !existingUser.emailVerified) {
+      if (!existingUser) {
         return false;
       }
       return true;

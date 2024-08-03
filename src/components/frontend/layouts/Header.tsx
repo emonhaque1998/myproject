@@ -10,12 +10,19 @@ import { setTheme } from "@/redux/features/themeModeSlice";
 import { BsMoonStarsFill } from "react-icons/bs";
 import { FaUserShield } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
+import { IoClose } from "react-icons/io5";
+import { usePathname } from "next/navigation";
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+];
 
 export default function Header() {
   const theme = useAppSelector((state) => state.theme.value);
   const dispatch = useAppDispatch();
   const [mobileNav, setMobileNav] = useState(false);
-
+  const pathName = usePathname();
   const changeNavHandler = () => {
     setMobileNav(!mobileNav);
   };
@@ -26,7 +33,7 @@ export default function Header() {
 
   return (
     <div className="flex justify-center max-md:relative">
-      <div className="container max-md:px-5 absolute top-10 z-10">
+      <div className="container max-md:px-5 absolute top-10 max-md:top-3 z-10">
         <div
           className={`${
             theme ? "bg-white/30" : "bg-[#18181D]/30"
@@ -51,33 +58,25 @@ export default function Header() {
                 theme ? "max-md:bg-black/50" : "max-md:bg-white/80"
               } max-md:rounded-xl`}
             >
-              <li
-                className={`max-md:py-1 max-md:px-3 max-md:rounded-t-xl ${
-                  theme
-                    ? "hover:max-md:bg-white hover:max-md:text-black"
-                    : "hover:max-md:bg-black hover:max-md:text-white"
-                }`}
-              >
-                Home
-              </li>
-              <li
-                className={`max-md:py-1 max-md:px-3 ${
-                  theme
-                    ? "hover:max-md:bg-white hover:max-md:text-black"
-                    : "hover:max-md:bg-black hover:max-md:text-white"
-                }`}
-              >
-                About
-              </li>
-              <li
-                className={`max-md:py-1 max-md:px-3 max-md:rounded-b-xl ${
-                  theme
-                    ? "hover:max-md:bg-white hover:max-md:text-black"
-                    : "hover:max-md:bg-black hover:max-md:text-white"
-                }`}
-              >
-                Contact
-              </li>
+              {navLinks.map((link) => {
+                return (
+                  <Link
+                    href={link.href}
+                    key={link.name}
+                    className={`transition-all cursor-pointer max-md:py-1 max-md:px-3 max-md:rounded-t-xl ${
+                      theme
+                        ? "hover:max-md:bg-white hover:max-md:text-black"
+                        : "hover:max-md:bg-black hover:max-md:text-white"
+                    } ${
+                      pathName === link.href
+                        ? "font-bold underline decoration-2 decoration-pink-500"
+                        : "font-normal"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
             </ul>
           </div>
           <div
@@ -111,8 +110,12 @@ export default function Header() {
             <Link href="/login">
               <FaUserShield />
             </Link>
-            <div className="hidden max-md:block">
-              <FiMenu onClick={changeNavHandler} />
+            <div className="hidden max-md:block cursor-pointer">
+              {mobileNav ? (
+                <IoClose onClick={changeNavHandler} />
+              ) : (
+                <FiMenu onClick={changeNavHandler} />
+              )}
             </div>
           </div>
         </div>
