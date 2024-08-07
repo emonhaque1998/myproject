@@ -4,6 +4,7 @@ import Hero from "@/components/frontend/home/Hero";
 import Project from "@/components/frontend/home/Project";
 import Together from "@/components/frontend/home/Together";
 import HomeLayout from "@/components/frontend/layouts/HomeLayout";
+import Image from "next/image";
 import { useAppSelector } from "@/redux/hooks";
 
 export default function About() {
@@ -77,8 +78,15 @@ export default function About() {
                 <p className="text-[#808080]">Let’s build something great,</p>
               </div>
             </div>
-            <div className="w-1/2 text-white max-md:hidden">
-              <h1>my name is Eman</h1>
+            <div className="w-1/2 text-white max-md:hidden flex justify-end">
+              <div>
+                <Image
+                  src="/assets/img/my.png"
+                  width={450}
+                  height={450}
+                  alt="My Image"
+                />
+              </div>
             </div>
           </div>
         </div>
