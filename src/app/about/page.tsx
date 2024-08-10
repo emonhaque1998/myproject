@@ -6,6 +6,7 @@ import Together from "@/components/frontend/home/Together";
 import HomeLayout from "@/components/frontend/layouts/HomeLayout";
 import Image from "next/image";
 import { useAppSelector } from "@/redux/hooks";
+import PageHeader from "@/components/frontend/utils/PageHeader";
 
 export default function About() {
   const theme = useAppSelector((state) => state.theme.value);
@@ -13,20 +14,12 @@ export default function About() {
   return (
     <HomeLayout headFood={true} notice={true}>
       <div className="flex flex-col gap-14">
-        <div className="container flex flex-col justify-end h-[30vh] max-md:h-[60vh]">
-          <div className="flex flex-col items-center gap-3">
-            <div
-              className={`text-6xl max-md:text-6xl font-bold ${
-                theme ? "text-black" : "text-white"
-              }`}
-            >
-              <h1 className="text-center">A little bit about me</h1>
-            </div>
-            <div className={`text-lg text-[#808080]`}>
-              <p>Who I am and what I do.</p>
-            </div>
-          </div>
-        </div>
+        <PageHeader
+          theme={theme}
+          title="A little bit about me"
+          slogun="Who I am and what I do."
+        />
+
         <div className="container">
           <div className="flex flex-row max-md:flex-col">
             <div

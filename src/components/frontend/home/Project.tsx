@@ -1,6 +1,7 @@
 import { useAppSelector } from "@/redux/hooks";
 import Image from "next/image";
 import { FaArrowRight } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Project() {
   const theme = useAppSelector((state) => state.theme.value);
@@ -56,14 +57,14 @@ export default function Project() {
                 </p>
               </div>
               <div className="lg:absolute lg:bottom-10">
-                <a
-                  href=""
+                <Link
+                  href={`/project/1`}
                   className={`flex items-center text-lg gap-1 ${
                     theme ? "text-[#808080]" : "text-white"
                   } max-md:text-lg`}
                 >
                   Visit Website <FaArrowRight className="text-sm" />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="flex justify-center w-1/2  max-md:hidden">
